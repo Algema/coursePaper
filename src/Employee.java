@@ -13,7 +13,7 @@ public class Employee {
         this.patronymic=patronymic;
         this.salary=salary;
         this.department=department;
-        numberId= numberId++;
+        numberId++;
         this.id=numberId;
     }
     public int getId(){

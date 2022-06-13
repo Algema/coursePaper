@@ -1,6 +1,6 @@
 public class Main {
+   private static Employee [ ] allEmployee = new Employee[10];
     public static void main(String[] args) {
-     Employee [ ] allEmployee = new Employee[10];
         allEmployee [0] = new Employee("Иванова","Екатерина"," Михайловна", 50000,2);
         allEmployee[1]=new Employee("Анисимова","Дарья","Геннадьевна",38000,1);
         allEmployee[2]= new Employee("Колесников","Евгений","Петрович", 43000,4);
@@ -21,29 +21,29 @@ public class Main {
         System.out.println(allEmployee[7]);
         System.out.println(allEmployee[8]);
         System.out.println(allEmployee[9]);*/
-        countAllSalary(allEmployee);
-        printAllEmployee1(allEmployee);
-        findMinSalary(allEmployee);
-        findAverageSalary(allEmployee);
-        findMaxSalary(allEmployee);
-        printFullName(allEmployee);
+        printAllEmployee1();
+        System.out.println("Общая сумма затрат на зарплаты " + countAllSalary());
+        findMinSalary();
+        findAverageSalary();
+        findMaxSalary();
+        printFullName();
+
 
     }
-    public static int  countAllSalary (Employee[ ] allEmployee ){
+    private static int  countAllSalary ( ){
        int sum = 0;
         for (Employee everyEmployee:allEmployee) {
             sum= sum+ everyEmployee.getSalary();
         }
-        System.out.println("Общая сумма затрат на зарплаты " + sum);
         return sum;
     }
 
-    private static void printAllEmployee1 ( Employee [] allEmployee){
+    private static void printAllEmployee1 ( ){
         for (Employee everyEmployee1: allEmployee) {
             System.out.println(everyEmployee1);
         }
     }
-    private static void findMinSalary (Employee [] allEmployee) {
+    private static void findMinSalary () {
         int min = 100_000;
         for ( Employee everyEmployeeMin : allEmployee){
             if (everyEmployeeMin.getSalary() < min)
@@ -51,13 +51,13 @@ public class Main {
         }
         System.out.println("Минимальная зарплата  " + min);
     }
-    private static void findAverageSalary (Employee [] allEmployee) {
-        int sum = countAllSalary(allEmployee);
-        int averageSalary = 0;
+    private static void findAverageSalary () {
+        double sum = countAllSalary();
+        double averageSalary = 0;
         averageSalary= sum / allEmployee.length;
         System.out.println("Средняя зарплата " + averageSalary);
     }
-    private static void findMaxSalary ( Employee [] allEmployee) {
+    private static void findMaxSalary ( ) {
         int max=0;
         for(Employee everyEmployeeMax:allEmployee){
             if(everyEmployeeMax.getSalary()>max)
@@ -65,7 +65,7 @@ public class Main {
         }
         System.out.println("Максимальная зарплата " + max);
     }
-    private static void printFullName(Employee [] allEmployee){
+    private static void printFullName(){
         for( Employee everyEmployeeFullName: allEmployee){
 
             System.out.println( "ФИО " + everyEmployeeFullName.getSurname()+" "+everyEmployeeFullName.getName() + " " + everyEmployeeFullName.getPatronymic());
